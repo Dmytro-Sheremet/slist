@@ -51,7 +51,7 @@ class Modal extends Component {
 							when i'm opening modal window second time - there is my previous input value] */}
 								<input type='text' class='form-control' placeholder='new item name' onChange={this.onChange} />
 								<button
-									onClick={this.onSubmit}
+									onSubmit={this.onSubmit}
 									data-dismiss='modal'
 									type='submit'
 									class='btn btn-warning mt-3 font-weight-bold text-white btn-block'

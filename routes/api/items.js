@@ -1,11 +1,19 @@
 const express = require('express');
 const router = express.Router();
 
+const show = req => {
+	const newItem = new Item({
+		name: req.body.name
+	});
+	//save to DB
+	newItem.save().then(item => res.json(item));
+};
+
 //Item Model
 const Item = require('../../models/Item');
 
 //@route         GET api/items
-//@description   Get All Items
+//@description   Get All sItsems
 //@access        Public
 router.get('/', (req, res) => {
 	Item.find()
@@ -16,13 +24,9 @@ router.get('/', (req, res) => {
 //@route         GET api/items
 //@description   Create a Post
 //@access        Public
-router.post('/', (req, res) => {
-	//create item with chema
-	const newItem = new Item({
-		name: req.body.name
-	});
-	//save to DB
-	newItem.save().then(item => res.json(item));
+router.post('/', (req, huj) => {
+	show(req);
+	huj.send();
 });
 
 //@route         DELETE api/items/:id

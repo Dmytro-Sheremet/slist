@@ -25,6 +25,10 @@ class Modal extends Component {
 		this.props.addItem(NewItem);
 	};
 
+	componentDidUpdate() {
+		this._input.focus();
+	}
+
 	render() {
 		return (
 			<div>
@@ -46,10 +50,17 @@ class Modal extends Component {
 				<div class='modal fade' id='exampleModal'>
 					<div class='modal-dialog'>
 						<div class='modal-content shadow-lg'>
-							<div class='input m-3 '>
+							<form class='input m-3 '>
 								{/* INPUT - how to clear input field after submit. problem - 
 							when i'm opening modal window second time - there is my previous input value] */}
-								<input type='text' class='form-control' placeholder='new item name' onChange={this.onChange} />
+								<input
+									autofocus='true'
+									ref={c => (this._input = c)}
+									type='text'
+									class='form-control'
+									placeholder='new item name'
+									onChange={this.onChange}
+								/>
 								<button
 									onClick={this.onSubmit}
 									data-dismiss='modal'
@@ -58,7 +69,7 @@ class Modal extends Component {
 								>
 									submit
 								</button>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>

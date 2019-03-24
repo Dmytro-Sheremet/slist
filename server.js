@@ -7,7 +7,7 @@ const items = require('./routes/api/items');
 
 const app = express();
 
-//BodyParser MiddleWare
+//BodyParser MiddleWarfe
 app.use(bodyParser.json());
 
 //DB Config
